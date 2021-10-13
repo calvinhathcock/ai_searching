@@ -173,60 +173,24 @@ def visualizeGrid(grid, path=False, block=False, max_cost=9):
  
     pyplot.show(block=True)
  
+def genStartGoal(grid):
  
-# def runTests(displayGrids=False):
-#     """ Runs a series of planning queries on randomly generated maps, map sizes, and start and goal pairs
+    sRow = random.randint(0, len(grid)-1)
+    sCol = random.randint(0, len(grid[0])-1)
+ 
+    while grid[sRow][sCol] == 0:
+        sRow = random.randint(0, len(grid)-1)
+        sCol = random.randint(0, len(grid[0])-1)
+ 
         
-#         Parameters:
-#                 displayGrid (bool): True will use matplotlib to visualize the grids
-                
-#         Returns:
-#                 None
-#     """
-#     numExpanded = []
-#     totalGridSize = 100
-#     gridSizes = [i for i in range(10,totalGridSize,5)]
-    
-#     numTests = 100
+    gRow = random.randint(0, len(grid)-1)
+    gCol = random.randint(0, len(grid[0])-1)
  
-#     # For each grid size
-#     for gs in gridSizes:    
-#         numEx = []
-#         # Do X tests where X=numTests
-#         for i in range(0,numTests):
-    
-#             # Get random grid, start, and goal
-#             grid = genGrid(gs)
-#             start, goal = genStartGoal(grid)
-    
-#             # Call algorithm
-#             [p, numExp] = uninformed_search(grid, start, goal)
-    
-#             # Display grids if desired
-#             if i < 2 and gs <= 50 and displayGrids:
-#                 visualizeGrid(grid, p)
-    
-#             # Store data for single run
-#             numEx.append(numExp)
-   
-#         # Store data for grid size
-#         numExpanded.append(numEx)
+    while grid[gRow][gCol] == 0:
+        gRow = random.randint(0, len(grid)-1)
+        gCol = random.randint(0, len(grid[0])-1)
  
-#     # Get average of expanded nodes for each grid size
-#     neAvg = []
-#     for i,n in enumerate(numExpanded):
-#         print("Grid size: %s" % gridSizes[i])
-#         avg = 0
-#         for e in n:
-#             avg += e
-#         avg = avg / len(n)
-#         neAvg.append(avg)
-#         print("Average number of expanded nodes: %s" % avg)
-    
-#     # Display bar graph for expanded node data
-#     plt.clf()
-#     plt.bar(gridSizes, neAvg)
-#     plt.show()
+    return [sRow, sCol], [gRow, gCol]
 
 def get_neighbors(location: T.Tuple[int, int], grid):
     row, col = location

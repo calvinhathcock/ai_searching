@@ -104,7 +104,7 @@ def simulated_annealing(initial_board, decay_rate, T_threshold):
             T_threshold: Minimum threshold for the temperature T
             
         Returns:
-            Final nqueens board
+            Final heuristic value
     '''
     T = 100
     current = initial_board
@@ -131,6 +131,6 @@ def simulated_annealing(initial_board, decay_rate, T_threshold):
     print("Final board:")
     current.printBoard()
     print(f"h-value: {cost}")
-    return current
+    return cost
 
 

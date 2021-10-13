@@ -95,17 +95,23 @@ for i in range(0, 3):
     result = simulated_annealing(board, decay_rates[i], thresholds[i]) 
 
 #10 runs of each board size
+#10 runs of each board size
+total = 0
 for j in board_sizes:
-    board = Board(j)
-    board.rand()
     print("***************************")
     print(f"Board size: {j}")
     print("***************************")
     print(f"Decay rate: {decay_rates[0]}")
     print("***************************")
     print(f"Threshold: {thresholds[0]}")
-    for k in range(0, 10):  
+    for k in range(0, 10):
+        board = Board(j)
+        board.rand()  
         print("---------------------------")
         print(f"Run: {k+1}")
         print()
         result = simulated_annealing(board, decay_rates[0], thresholds[0])
+        total = total + result
+    print("---------------------------") 
+    print(f"Average h-value of board size {j}: {total/10}")
+    print("---------------------------")
