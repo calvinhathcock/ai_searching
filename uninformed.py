@@ -9,7 +9,7 @@ import typing as T
 from helpers import *
 
 #Node object to represent each position in the grid 
-class Node:
+class Node: 
     ''' 
     Node object to represent each position in the grid
     value: 2 element list for the coordinate

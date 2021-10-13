@@ -3,7 +3,7 @@ import math
 from helpers import *
 
 class Board():
-
+ 
     def __init__(self, numRowsCols):
         self.cells = [[0] * numRowsCols for i in range(numRowsCols)]
         self.numRows = numRowsCols

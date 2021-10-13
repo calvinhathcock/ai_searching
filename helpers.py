@@ -40,7 +40,7 @@ def outputGrid(grid, start, goal, path, fname):
  
     # Mark intermediate points with *
     for i, p in enumerate(path):
-        if i > 0 and i < len(path)-1:
+        if i > 0 and i < len(path)-1: 
             temp_grid[p[0]][p[1]] = '*'
  
     # Write the grid to a file

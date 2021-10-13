@@ -5,7 +5,7 @@ from informed import *
 open_list = []
 closed_list = []
 
-#read in grid
+#read in grid 
 grid = readGrid("grid.txt")
 
 #get starting location

@@ -21,7 +21,7 @@ class InformedNode(Node):
     '''
     def __init__(self, value: T.Tuple[int, int], g: float = 0.0, h: float = 0.0, parent = None):
         super().__init__(value, parent) 
-        self.g = g
+        self.g = g 
         self.h = h
         self.f = g + h
         
