@@ -102,4 +102,4 @@ def a_star(open_list: T.List, closed_list: T.List, node: Node, goal: Node, grid:
     print(status)
     print(f"Total expanded nodes: {count}")
     print(f"Path cost: {cost}")
-    return path
+    return path, count

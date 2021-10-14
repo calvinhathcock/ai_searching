@@ -93,7 +93,7 @@ def uninformed_search(open_list: T.List, closed_list: T.List, node: Node, goal: 
         cost = cost + grid[node.value[0]][node.value[1]]
         path.insert(0, node.value)
         node = node.parent
-    print(status)
+        print(status)
     print(f"Total expanded nodes: {count}")
     print(f"Path cost: {cost}")
     return path, count
