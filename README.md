@@ -56,8 +56,10 @@ I implemented informed search with the A* algorithm. The implementation is very 
 Expectedly A* performed much better than its uninformed alternatives. The rate of change in which the number of nodes expanded was relatively linear, whereas they seemed exponential for the uninformed algorithms. 
 
 Local Search
+
 The next type of search algorithm implemented is local search. The fundamental difference between local search and classical search is that local search does not store the path or even return a path as a solution. It only searches for the goal state and returns that. Because of this, local search has drastically smaller space complexity compared to classical search. Local search in some ways is similar to informed search since it uses either an object or cost function to aid making decisions. However, some local search algorithms operate completely randomly. 
-    In order to implement local search, a new problem needs to be formulated called the N-Queens problem. N-Queens is based off of the chess rules for queens which can move vertically, horizontally, and diagonally. Given N queens and an N by N chess board, the goal is to position all the queens so that none of them are attacking each other, meaning that none of them are in the same row, column, or diagonal. 
+   
+   In order to implement local search, a new problem needs to be formulated called the N-Queens problem. N-Queens is based off of the chess rules for queens which can move vertically, horizontally, and diagonally. Given N queens and an N by N chess board, the goal is to position all the queens so that none of them are attacking each other, meaning that none of them are in the same row, column, or diagonal. 
 State representation: Any arrangement of N queens on an N by N board.
 Actions: Move any queen to any space within its column
 Transition model: Returns a board with the queen added to the specified position.
