@@ -1,5 +1,5 @@
-## ai_searching
-Introduction
+# ai_searching
+### Introduction
 
 The set of problems that follow consist of various implementations of state space searching.  Given a state space abstracted in the form of a tree or graph, searching is the process of exploring said graph until a defined goal is met. There are multiple strategies of searching that can be implemented, in this report, we will be focusing on uninformed search, informed search, and local search. Two example problems will be used to implement these search strategies. The first of which is to simply find a path from one point in a grid to another, the second is known as the N-Queens problem. Each search strategy will be analyzed and the pros and cons of each will be discussed.
 
@@ -16,7 +16,7 @@ Transition Model: The transition model accepts a state and an action, and return
 Goal test: The goal test will be checked after each action to see if the new position is equal to the goal. 
 Path Cost: The past cost will be the sum of every node’s step cost that was visited until the goal node was found. 
 
-Uninformed Search
+### Uninformed Search
 
 Uninformed search is  a search strategy that has no additional information about states beyond what is defined in the problem definition. All that it can do is generate successors and check if a given successor is the goal state. Different uninformed search strategies are primarily distinguished in the order in which successor nodes are expanded. The two uninformed search algorithms implemented here are Breadth First Search (BFS) and Depth First Search (DFS). The BFS algorithm is an instance of the general graph-search algorithm in which the shallowest unexpanded nodes are chosen for expansion. Given the first problem of finding a path from one point in a graph to another, you can imagine that given any starting position, BFS will tend to explore horizontally before moving vertically. DFS on the other hand, (as the name suggests) tends to explore depth before moving horizontally. These two algorithms are distinguished by the data structure in which unexplored nodes are stored. BFS uses a queue (First in, First out) data structure, and DFS uses a stack (Last in, First out). 
 For this project, all the algorithms were implemented in Python. There is a script for each type of algorithm (uninformed, informed, local) and their necessary functions, a script for “helper” functions that can be used by any of the various search algorithms, a test script to run simulations, and a driver notebook that actually sets up and runs each algorithm and tests. 
@@ -40,18 +40,18 @@ Space Complexity: O(bm)
 Since only the current path needs to be stored
 Since depth first search always explores depth first (who would of guessed), it will almost always hit the deepest depth even when the goal is not at the deepest depth.
 
-Tests
+### Tests
 
 The first four plots are of BFS and the next four are DFS. As expected, the uninformed search algorithms performed worse and worse as the problem size grew, however they were still very successful at actually finding solutions in the end, however long it may take. 
 
-Informed Search
+### Informed Search
 Informed search is another type of classical search in which a path is returned as the solution. Unlike uninformed searches, informed search does have some more information beyond the problem definition. Most common method of attaining this additional information is through the use of heuristic functions. These are problem specific functions that provide heuristic information. For example, in our grid search problem a common heuristic could be the euclidean distance between a given position and the goal. The heuristic I will be implementing is the Manhattan distance. Beyond just having a heuristic value, different algorithms will utilize the value in different ways. Greedy search solely evaluates the heuristic value when choosing a node and takes nothing else into account. Whereas the A* algorithm uses both the heuristic value and the step cost to decide which node to traverse to. Greedy search is incomplete since it can get caught in infinite loops at local maximas and minimas. A* is optimal depending on the heuristic and can be complete in finite spaces. Once again, informed search algorithms decide where to traverse based on heuristic values to give them some insight on the best path.   
 I implemented informed search with the A* algorithm. The implementation is very similar to uninformed search just with some added parameters tacked on. I created a subclass of our Node class that also contains properties for  g(n), h(n), and f(n). A less than method was overridden so that the node object could be compared in a heap. I created a heuristic function that calculates f(n). The expand_node function was slightly modified to take into account the heuristics and also new node properties. Lastly, the actual search loop was slightly modified to pop nodes from a heap.
 
 
 Expectedly A* performed much better than its uninformed alternatives. The rate of change in which the number of nodes expanded was relatively linear, whereas they seemed exponential for the uninformed algorithms. 
 
-Local Search
+### Local Search
 
 The next type of search algorithm implemented is local search. The fundamental difference between local search and classical search is that local search does not store the path or even return a path as a solution. It only searches for the goal state and returns that. Because of this, local search has drastically smaller space complexity compared to classical search. Local search in some ways is similar to informed search since it uses either an object or cost function to aid making decisions. However, some local search algorithms operate completely randomly. 
    
@@ -67,7 +67,7 @@ In order to solve this problem using local search, the simulated annealing algor
 
 
 Initial board:
-[0, 0, 0, 1]
+[0, 0, 0, 1]<br>
 [0, 0, 0, 1]
 [0, 1, 0, 0]
 [1, 0, 0, 0]
