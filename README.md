@@ -40,11 +40,7 @@ Space Complexity: O(bm)
 Since only the current path needs to be stored
 Since depth first search always explores depth first (who would of guessed), it will almost always hit the deepest depth even when the goal is not at the deepest depth.
 
-  
 Tests
-
-
-
 
 The first four plots are of BFS and the next four are DFS. As expected, the uninformed search algorithms performed worse and worse as the problem size grew, however they were still very successful at actually finding solutions in the end, however long it may take. 
 
