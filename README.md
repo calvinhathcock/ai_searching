@@ -1,9 +1,9 @@
-# ai_searching
+## ai_searching
 Introduction
 
 The set of problems that follow consist of various implementations of state space searching.  Given a state space abstracted in the form of a tree or graph, searching is the process of exploring said graph until a defined goal is met. There are multiple strategies of searching that can be implemented, in this report, we will be focusing on uninformed search, informed search, and local search. Two example problems will be used to implement these search strategies. The first of which is to simply find a path from one point in a grid to another, the second is known as the N-Queens problem. Each search strategy will be analyzed and the pros and cons of each will be discussed.
 
-Classical Search
+### Classical Search
 
 The first problem to be implemented is formulated by a two-dimensional grid. An agent is tasked with finding a path from one starting position to a different goal position within the grid. Each position in the grid is represented by a numeric value indicating the cost to move to that position. Positions with a value of zero represent a wall which cannot be traversed. The agent can move vertically and horizontally, but not diagonally. 
 State representation: A square two dimensional array of integers. This array can be various sizes. Each position has an integer value that represents its step cost, 0 meaning the position is non-traversable. 
